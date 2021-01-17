@@ -25,7 +25,7 @@ The GUI for the process engineer is the window on the left, where he/she define 
 
 ### Sequence Diagram ###
 
-![alt text](https://github.com/thewildling/Knowledge_Based_Engineering/blob/main/Pictures/Sequence%20diagram%20-%20Chair?raw=true)
+![alt text](https://github.com/thewildling/Knowledge_Based_Engineering/blob/main/Pictures/Sequence%20diagram%20-%20Chair.png?raw=true)
 
 ### Architecture ###
 

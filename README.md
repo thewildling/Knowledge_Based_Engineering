@@ -17,6 +17,15 @@ The process engineer:
 1. The process engineer enters the website *127.0.0.1:4321/process*.
 2. He enters the maximum and minimum boundaries based on the machinery making the chair.
 3. He/she then presses the submit-button to send the requirements to the fuseki-server.  
+ #### GUI ####
+ 
+We did not focus on design of the user interface in this project, so the design is very simple and created with HTML-code.
+The GUI for the process engineer is the window on the left, where he/she define limits for the chair. The middle window is the window for which the customer chooses the desired sizes and colors of the chair. The window on the right is just a simple info-page where the order information is repeated to the customer as well as a confirmation that the product can be made (is within the limits).
+![alt text](https://github.com/thewildling/Knowledge_Based_Engineering/blob/main/Pictures/GUI-Chair.png?raw=true)
+
+### Sequence Diagram ###
+
+![alt text](https://github.com/thewildling/Knowledge_Based_Engineering/blob/main/Pictures/Sequence%20diagram%20-%20Chair?raw=true)
 
 ### Architecture ###
 

@@ -20,6 +20,8 @@ The process engineer:
 
 ### Architecture ###
 
+![alt text](https://github.com/thewildling/Knowledge_Based_Engineering/blob/main/Pictures/Architecture%20-%20Chair.png?raw=true)
+
 Walk through of the Architecture:
 
 1. The product designer constructs a .dfa-file to work as a template.

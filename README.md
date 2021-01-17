@@ -5,6 +5,11 @@ This repository includes all projects completed by my team during the course *TM
 
 This project task involved creating a KBE system for a chair-manufacturing company. The idea was to create a solution that allowed the customer to define different specifications of the chair (height, lenght of feet, thickness, color etc.), and then present the finished design to the user without the user needing any engineering/programming skills. The solution would design the chair in Siemes NX automatically based on only a few parameters from the customer input. This solution was created for 2 specific users: the customer and the process engineer. The reason for creating a UI for the process engineer as well was that the factory would have limits on their equipment, and thereby limits on the chairs that could be made. 
 
+### Setup ###
+
+Initialize an apache web server, running locally on the computer. Add the OWL-file to the server. 
+Start the Python-files called *DFAServer* and *ManufReqServer*. Have NX running on the computer. After the userinput has been submitted, press update on the DFA-file inside NX to see the updated chair.  
+
 ### User stories ###
 
 The customer:
@@ -41,4 +46,9 @@ Walk through of the Architecture:
 6. If the customers inputs are accepted a new .dfa-file is made with the relevant specs.
 7. When the new .dfa-file is reloaded inside NX, the model will automatically be updated to the relevant specs. 
 
+### Requirements ###
 
+- Siemens NX (which has the programming language *Knowledge Fusion* imbedded, which was used for making .dfa-files used as templates for the chair)
+- Python version 3.7
+- Apache Jena Fuseki (SPARQL server)
+- Olingvo (program for easily creating OWL-files which was uploaded to the Fuseki-server) or just Notebook for writing the OWL-files 

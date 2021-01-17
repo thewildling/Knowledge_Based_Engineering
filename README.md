@@ -1,9 +1,9 @@
 # Knowledge_Based_Engineering
-This repository includes all projects completed by my team during the course *TMM4275 Knowledge-base Engineering* at NTNU.
+This repository includes all projects completed by my team during the course *TMM4275 Knowledge-base Engineering* at NTNU. Videos of all projects can be found in the Video-folder.
 
 ## Project 1 ##
 
-This project task involved creating a KBE system for a chair-manufacturing company. The idea was to create a solution that allowed the customer to define different specifications of the chair (height, lenght of feet, thickness, color etc.), and then present the finished design to the user without the user needing any engineering/programming skills. The solution would design the chair in Siemes NX automatically based on only a few parameters from the customer input. This solution was created for 2 specific users: the customer and the process engineer. The reason for creating a UI for the process engineer as well was that the factory would have limits on their equipment, and thereby limits on the chairs that could be made.
+This project task involved creating a KBE system for a chair-manufacturing company. The idea was to create a solution that allowed the customer to define different specifications of the chair (height, lenght of feet, thickness, color etc.), and then present the finished design to the user without the user needing any engineering/programming skills. The solution would design the chair in Siemes NX automatically based on only a few parameters from the customer input. This solution was created for 2 specific users: the customer and the process engineer. The reason for creating a UI for the process engineer as well was that the factory would have limits on their equipment, and thereby limits on the chairs that could be made. 
 
 ### User stories ###
 

@@ -7,7 +7,7 @@ This project task involved creating a KBE system for a chair-manufacturing compa
 
 ### Setup ###
 
-Initialize an apache web server, running locally on the computer. Add the OWL-file to the server. 
+Design a basic chair-template in a .dfa-file. Initialize an apache web server, running locally on the computer. Add the OWL-file to the server. 
 Start the Python-files called *DFAServer* and *ManufReqServer*. Have NX running on the computer. After the userinput has been submitted, press update on the DFA-file inside NX to see the updated chair.  
 
 ### User stories ###
@@ -22,6 +22,7 @@ The process engineer:
 1. The process engineer enters the website *127.0.0.1:4321/process*.
 2. He enters the maximum and minimum boundaries based on the machinery making the chair.
 3. He/she then presses the submit-button to send the requirements to the fuseki-server.  
+
  #### GUI ####
  
 We did not focus on design of the user interface in this project, so the design is very simple and created with HTML-code.
@@ -52,3 +53,103 @@ Walk through of the Architecture:
 - Python version 3.7
 - Apache Jena Fuseki (SPARQL server)
 - Olingvo (program for easily creating OWL-files which was uploaded to the Fuseki-server) or just Notebook for writing the OWL-files 
+
+## Project 2 ##
+
+This project task involved creating a KBE system for a scaffold-node-manufacturing company. The idea was to create a solution that allowed the customer to define different specifications of a node that would to be used to connect poles in scaffolds. The user needs to define what torque and force the node need to withstand, as well as the diameter of the poles that the node shall be attached to. The node would automatically be analyzed in Siemes NX by use of Nastran, where the force and torque that the user implemented would be inflicted in the holes, and the deformation-simulation would then be shown to the user.
+
+### Setup ###
+
+Design the node-template in a .dfa-file. Initialize an apache web server, running locally on the computer.Run the DFAServerForNode.py-file which retrieves the input that the user submitted on the website and changes the diameter of the holes on the node. As we used journaling in NX (automatic creation of Python-code for every action within NX) to create the code used for analyzation, one has to go into NX and press "play" on the NXServer.py-file which starts the Analyzer.py-file. The Analyzer.py-file starts analyzing the node with the force and torque that was specified by the user. It also creates a GIF of the simulation (showing deformation on the node), and posts it to the info-website.
+
+### User stories ###
+
+The customer: 
+1. The customer enters *127.0.0.1:1234/productConfig*. 
+2. Then he/she enters the wanted force, torque and pipe-diameter for the node and presses the "submit"-button.
+3. The customer then enters the info-page on *127.0.0.1:1234/info*. 
+4. Here the customer can see the simulation-result of the node from NX. 
+
+ #### GUI ####
+ 
+The first image shows how the simple GUI for the customer-website looks like. The second shows how the info-website looks like (after the customer has ordered a node).
+
+![alt text](https://github.com/thewildling/Knowledge_Based_Engineering/blob/main/Pictures/GUI-NodeInputs.png?raw=true)
+
+![alt text](https://github.com/thewildling/Knowledge_Based_Engineering/blob/main/Pictures/GUI-NodeResults.png?raw=true)
+
+### Sequence Diagram ###
+
+![alt text](https://github.com/thewildling/Knowledge_Based_Engineering/blob/main/Pictures/Sequence%20diagram%20-%20Node.png?raw=true)
+
+### Architecture ###
+
+![alt text](https://github.com/thewildling/Knowledge_Based_Engineering/blob/main/Pictures/Architecture%20-%20Node.png?raw=true)
+
+Walk through of the Architecture:
+
+1. The product designer constructs a dfa-file to work as a template.
+2. The customer enters the website under *127.0.0.1:1234/productConfig*, and is asked to put in the force/torque and diameter of the pipes. This is hosted by the DFA-server.
+3. The DFA-server changes the parameter defining the node’s diameter and cutting radius of the removed parts, based on the diameter of the holes (or pipes) entered by the customer. 
+4. The process engineer defines the boundary for the material to start deforming (290 Pascal on Aluminum in our case). 
+5. The NX-server retrieves methods for analyzing the node from the Analyzer.py-file, and starts the analyzing by using Nastran (it has to be played off as a journal-file inside the NX-program).
+6. The customer can enter the website *127.0.0.1:1234/info* to see the specifics of the node as well as an animation of the stress inflicted on the node. 
+
+
+### Requirements ###
+
+- Siemens NX (includes Nastran, which was used for analyzing the node)
+- Python version 3.7
+- Apache Jena Fuseki (SPARQL server)
+
+## Project 3 ##
+
+This project task involved creating a KBE system for a farmer. The idea is that the farmer needs a rail in the ceiling where a feeding-machine can run in order to feed animals. The solution is based on a predefined design of the rail, however the path of the rail is different based on the customer input. Since the rail is supposed to hang from the ceiling of a barn, it will look differently based on how the ceiling profile of the barn is, and most importantly where the animals are/where the feeder has to run through. This solution automatically creates a path between the feeding-spots, and also avoids any obstacles that the customer has defined (for example beams that are in the way). The customer could then see the result of how the rail would look like. 
+
+### Setup ###
+
+Design the rail-template in a .dfa-file. Initialize an apache web server, running locally on the computer. Run the App.py-file. 
+
+### User stories ###
+
+The customer: 
+1. The customer enters the website *127.0.0.1:5000*.
+2. Then he/she enters the rail-points, the obstacle-points and the height to the ceiling.
+3. The customer can then see the resulting rail-path on the same website after a few seconds.
+
+ #### GUI ####
+
+The first image shows the startpage *127.0.0.1:5000*. We have focused on creating an intuitive user interface this time. The customer starts by entering the size of the room where the rail should be by filling in the grid-size and clicking “Generate room”. The customer can then click on the squares on the grid which either represents the coordinates in the room where the rail should be (in black) or where the obstacles should be (in red). The customer can then check the coordinates in the lists that show up on the left side, and edit the list if he/she wants to change the order or remove a point. If the customer clicks on the wrong squares he/she can also click the “Remove points”-button and click on them again to remove them.
+
+![alt text](https://github.com/thewildling/Knowledge_Based_Engineering/blob/main/Pictures/GUI-RailInput.png?raw=true)
+
+The box below pops up when the customer clicks on a rail-point. It asks the customer to enter the height to the ceiling for that point for which the beams (that holds up the rail) would be placed. 
+
+![alt text](https://github.com/thewildling/Knowledge_Based_Engineering/blob/main/Pictures/GUI-RailHeights.png?raw=true)
+
+When the customer has finished entering the input and clicked on the “Generate rail”-button the rail generated in NX will show up on the same website. It also shows the beams that hang from the ceiling to hold up the rail. This happens automatically. This way the customer does not have to do anything else than defining the inputs the first time. 
+
+![alt text](https://github.com/thewildling/Knowledge_Based_Engineering/blob/main/Pictures/GUI-RailResult.png?raw=true)
+
+### Sequence Diagram ###
+
+![alt text](https://github.com/thewildling/Knowledge_Based_Engineering/blob/main/Pictures/Sequence%20diagram%20-%20Rail.png?raw=true)
+
+### Architecture ###
+
+![alt text](https://github.com/thewildling/Knowledge_Based_Engineering/blob/main/Pictures/Architecture%20-%20Rail.png?raw=true)
+
+Walk through of the Architecture:
+
+1. The product designer constructs a dfa-file to work as a template.
+2. The customer enters the website under *127.0.0.1:5000*, and chooses the size of the room, the points where the rail should be, the points where there is an obstacle as well  as the height to the ceiling in the different points. This is hosted by App.py (which works as a “Main”-function for all the other ones).
+3. The DFA-server retrieves the information from the user and runs the PathPlanner.py to plan the rail-path. 
+4. The DFA-server then makes the necessary changes to the DFA-template.
+5. NX then retrieves the KF-code from the DFA-file and creates the rail in NX.
+6. The customer can then see the resulting rail on the user interface. 
+
+### Requirements ###
+
+- Siemens NX 
+- Python version 3.7
+- Apache Jena Fuseki (SPARQL server)

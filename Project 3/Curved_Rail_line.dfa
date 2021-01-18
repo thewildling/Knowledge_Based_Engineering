@@ -1,0 +1,7 @@
+
+
+(Child) line_rail_path_<ID>: {
+ Class, ug_line; 
+ Start_Point, Point(<START_X>,<START_Y>,<START_Z>); 
+ End_Point, Point(<END_X>,<END_Y>,<END_Z>); 
+}; 

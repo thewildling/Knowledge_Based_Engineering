@@ -1,0 +1,10 @@
+
+
+(child) curve_rail_path_<ID>: { 
+  class, ug_arc;
+  radius, <CURVE_RADIUS>;
+  start_angle, <START_ANG>;
+  end_angle, <END_ANG>;
+  center, point(<CENTER_X>,<CENTER_Y>,<CENTER_Z>);
+};
+

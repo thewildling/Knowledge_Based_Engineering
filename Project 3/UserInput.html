@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html><body>
+
+<h2>Information for the rail:</h2>
+
+<form action="/action_page.php">
+<method="post">
+Feeding spot: <br><br>
+If LINE: format [(x1, y1), (x2, y2)]: <br>
+  <input type="text" name="line" value="str(line)"><br>
+  If POINT: format (x, y): <br>
+  <input type="text" name="point" value="str(point)"><br>
+   If CURVE: format [(xs, ys), (xe, ye), r]: <br>
+  <input type="text" name="curve" value="str(curve)"><br>
+  <br><br>
+   Obstacles: <br>
+   (format [x, y, length, width, orientation]) <br><br>
+   First:<br><input type="text" name="obstacle1" value="str(obstacle1)"><br> Second: <br>
+  <input type="text" name="obstacle2" value="str(obstacle2)"><br>
+  Third: <br>
+  <input type="text" name="obstacle3" value="str(obstacle3)"><br><br>
+  Profile of ceiling: <br>
+  (format [(x1, y1), (x2, y2), ... , (xn, yn)] + width) <br>
+  <input type="text" name="profile" value="str(profile)"><br>
+
+  <br>
+  <input type="submit" value="Submit">
+</form>
+
+<p>If you click the "Submit" button, the form-data will be sent, and you can check it at "http://127.0.0.1:12347info"!</p>
+
+</body>
+</html>

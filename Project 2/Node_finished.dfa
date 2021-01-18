@@ -1,0 +1,216 @@
+#! NX/KF 4.0
+DefClass: Node_finished (ug_base_part);
+
+	
+	(Number parameter) cyliner_length: 100; #also the diameter of the node
+	(Number parameter) hole_diameter: 20; 
+	(Number parameter) radius:4.0;
+	
+	
+	nyLengde: sqrt((cyliner_length:*cyliner_length:)+(cyliner_length:*cyliner_length:));
+	nyLengde2: sqrt((cyliner_length2:*cyliner_length2:)+(cyliner_length2:*cyliner_length2:));
+	
+
+	(child) midSphere: 
+    {
+        class, ug_sphere;
+    diameter, cyliner_length:;
+	Origin, Point(0,0,0);
+    };
+	
+	
+	(child) Cylinder1: 
+    {
+        class, ug_cylinder;
+        diameter, hole_diameter:;
+	height, cyliner_length:*2;
+	Origin, Point(-cyliner_length:,0,0);
+	Direction, Vector(1,0,0);
+	Operation, Subtract;
+	Target, {midSphere:};
+    };
+
+
+		(child) Cylinder2: 
+    {
+        class, ug_cylinder;
+        diameter, hole_diameter:;
+	height, cyliner_length:*2;
+	Origin, Point(0,-cyliner_length:,0);
+	Direction, Vector(0,1,0);
+	Operation, Subtract;
+	Target, {midSphere:};
+    };
+		
+
+	
+	
+	(child) Cylinder3: 
+    {
+        class, ug_cylinder;
+        diameter, hole_diameter:;
+	height, cyliner_length:*2;
+	Origin, Point(0,0,-cyliner_length:);
+	Direction, Vector(0,0,1);
+	Operation, Subtract;
+	Target, {midSphere:};
+    };
+
+
+
+(child) top_handle_hole: 
+    {
+        class, ug_block;
+	height, cyliner_length:;
+	width, cyliner_length:; 
+	length, cyliner_length:; 
+	referenceFrame, framexy(point(-radius:,-radius:+nyLengde:/2,cyliner_length:/2), vector(1, 1, 0), vector(1, 0, 0));
+	Operation, Subtract;
+	Target, {midSphere:};
+    };
+	
+	
+
+		
+(child) top_handle_hole2: 
+    {
+        class, ug_block;
+	height, cyliner_length:;
+	width, cyliner_length:; 
+	length, cyliner_length:; 
+	referenceFrame, framexy(point(radius:-nyLengde:,-radius:+nyLengde:/2,cyliner_length:/2), vector(1, 1, 0), vector(1, 0, 0));
+	Operation, Subtract;
+	Target, {midSphere:};
+    };
+	
+(child) top_handle_hole3: 
+    {
+        class, ug_block;
+	height, cyliner_length:;
+	width, cyliner_length:; 
+	length, cyliner_length:; 
+	referenceFrame, framexy(point(-radius:,radius:+nyLengde:/2-nyLengde:,cyliner_length:/2), vector(1, 1, 0), vector(1, 0, 0));
+	Operation, Subtract;
+	Target, {midSphere:};
+    };
+	
+		
+(child) top_handle_hole4: 
+    {
+        class, ug_block;
+	height, cyliner_length:;
+	width, cyliner_length:; 
+	length, cyliner_length:; 
+	referenceFrame, framexy(point(radius:-nyLengde:,radius:+nyLengde:/2-nyLengde:,cyliner_length:/2), vector(1, 1, 0), vector(1, 0, 0));
+	Operation, Subtract;
+	Target, {midSphere:};
+    };
+	
+	
+
+(child) top_handle_hole5: 
+    {
+        class, ug_block;
+	height, cyliner_length:;
+	width, cyliner_length:; 
+	length, cyliner_length:; 
+	referenceFrame, framexy(point(-cyliner_length:/2,-radius:,-nyLengde:/2+radius:), vector(0, 1, 1), vector(1, 0, 0));
+	Operation, Subtract;
+	Target, {midSphere:};
+    };
+	
+
+	
+(child) top_handle_hole6: 
+    {
+        class, ug_block;
+	height, cyliner_length:;
+	width, cyliner_length:; 
+	length, cyliner_length:; 
+	referenceFrame, framexy(point(-cyliner_length:/2,-nyLengde:+radius:,-nyLengde:/2+radius:), vector(0, 1, 1), vector(1, 0, 0));
+	Operation, Subtract;
+	Target, {midSphere:};
+    };
+	
+
+(child) top_handle_hole7: 
+    {
+        class, ug_block;
+	height, cyliner_length:;
+	width, cyliner_length:; 
+	length, cyliner_length:; 
+	referenceFrame, framexy(point(-cyliner_length:/2,-radius:,-nyLengde:/2+nyLengde:-radius:), vector(0, 1, 1), vector(1, 0, 0));
+	Operation, Subtract;
+	Target, {midSphere:};
+    };
+	
+
+(child) top_handle_hole8: 
+    {
+        class, ug_block;
+	height, cyliner_length:;
+	width, cyliner_length:; 
+	length, cyliner_length:; 
+	referenceFrame, framexy(point(-cyliner_length:/2,-nyLengde:+radius:,-nyLengde:/2+nyLengde:-radius:), vector(0, 1, 1), vector(1, 0, 0));
+	Operation, Subtract;
+	Target, {midSphere:};
+    };
+	
+
+(child) top_handle_hole9: 
+    {
+        class, ug_block;
+	height, cyliner_length:;
+	width, cyliner_length:; 
+	length, cyliner_length:; 
+	referenceFrame, framexy(point(-radius:,-cyliner_length:/2,nyLengde:/2-radius:), vector(1, 0, 1), vector(1, 0, 0));
+	Operation, Subtract;
+	Target, {midSphere:};
+    };
+	
+
+(child) top_handle_hole10: 
+    {
+        class, ug_block;
+	height, cyliner_length:;
+	width, cyliner_length:; 
+	length, cyliner_length:; 
+	referenceFrame, framexy(point(-nyLengde:+radius:,-cyliner_length:/2,nyLengde:/2-radius:), vector(1, 0, 1), vector(1, 0, 0));
+	Operation, Subtract;
+	Target, {midSphere:};
+    };
+	
+
+		
+
+(child) top_handle_hole11: 
+    {
+        class, ug_block;
+	height, cyliner_length:;
+	width, cyliner_length:; 
+	length, cyliner_length:; 
+	referenceFrame, framexy(point(-radius:,-cyliner_length:/2,nyLengde:/2-nyLengde:+radius:), vector(1, 0, 1), vector(1, 0, 0));
+	Operation, Subtract;
+	Target, {midSphere:};
+    };
+	
+	
+(child) top_handle_hole12: 
+    {
+        class, ug_block;
+	height, cyliner_length:;
+	width, cyliner_length:; 
+	length, cyliner_length:; 
+	referenceFrame, framexy(point(-nyLengde:+radius:,-cyliner_length:/2,nyLengde:/2-nyLengde:+radius:), vector(1, 0, 1), vector(1, 0, 0));
+	Operation, Subtract;
+	Target, {midSphere:};
+    };
+	
+	
+	
+
+	
+
+
+
+	

@@ -179,3 +179,7 @@ The picture below is the result after the robot arm had been rendered in NX to h
 
 ![alt text](https://github.com/thewildling/Knowledge_Based_Engineering/blob/main/Pictures/Robotarm-Rendered.png?raw=true)
 
+## Contributors ##
+
+- Anders Fredriksen
+- Fridjof Høyer

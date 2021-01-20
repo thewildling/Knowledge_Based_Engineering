@@ -167,7 +167,7 @@ In this project we have made a robotic arm, or more precisely; a 3-link open-cha
 - Python
 - Siemens NX
 
-On runs the python-files severel times until it converges into the best solution.
+One runs the python-file several times until it converges into the best solution.
 
 ### GUI ###
 

@@ -60,7 +60,7 @@ Walk through of the Architecture:
 
 ## Project 2 ##
 
-This project task involved creating a KBE system for a scaffold-node-manufacturing company. The idea was to create a solution that allowed the customer to define different specifications of a node that would to be used to connect poles in scaffolds. The user needs to define what torque and force the node need to withstand, as well as the diameter of the poles that the node shall be attached to. The node would automatically be analyzed in Siemes NX by use of Nastran, where the force and torque that the user implemented would be inflicted in the holes, and the deformation-simulation would then be shown to the user.
+This project task involved creating a KBE system for a scaffold-node-manufacturing company. The idea was to create a solution that allowed the customer to define different specifications of a node that would to be used to connect poles in scaffolds. The user needs to define what torque and force the node need to withstand, as well as the diameter of the poles that the node shall be attached to. The node would automatically be analyzed in Siemes NX by use of Nastran (FEM - multi-CAD finite element modeling), where the force and torque that the user defined would be inflicted in the holes of the 3D-mesh, and the deformation-simulation would then be shown to the user.
 
 ### Setup ###
 

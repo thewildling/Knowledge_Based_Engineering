@@ -1,5 +1,5 @@
 # Knowledge_Based_Engineering
-This repository includes all projects completed by my team during the course *TMM4275 Knowledge-base Engineering* at NTNU. Videos of all projects can be found in the Video-folder.
+This repository includes all projects completed by my team during the course *TMM4275 Knowledge-based Engineering* at NTNU. Videos of all projects can be found in the Video-folder.
 
 ## Project 1 ##
 

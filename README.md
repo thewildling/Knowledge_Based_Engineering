@@ -29,9 +29,9 @@ We did not focus on design of the user interface in this project, so the design 
 The GUI for the process engineer is the window on the left, where he/she define limits for the chair. The middle window is the window for which the customer chooses the desired sizes and colors of the chair. The window on the right is just a simple info-page where the order information is repeated to the customer as well as a confirmation that the product can be made (is within the limits).
 ![alt text](https://github.com/thewildling/Knowledge_Based_Engineering/blob/main/Pictures/GUI-Chair.png?raw=true)
 
-The image below is the result (chair-design) in NX.
-![alt text](https://github.com/thewildling/Knowledge_Based_Engineering/blob/main/Pictures/GUI-ChairInNX.png?raw=true)
-
+The images below is the result (chair-designs) in NX. Here we had made a bench.
+![alt text](https://github.com/thewildling/Knowledge_Based_Engineering/blob/main/Pictures/ChairResult1.png?raw=true)
+![alt text](https://github.com/thewildling/Knowledge_Based_Engineering/blob/main/Pictures/ChairResult2.png?raw=true)
 
 ### Sequence Diagram ###
 
